@@ -2,8 +2,8 @@
 def get_name(name):
     name = input("Enter your name: ")
     while name == "":
-        name = input("Invalid input. Please enter your name")
-        return(name)
+        name = input("Invalid input. Please enter your name: ")
+    return(name)
 
 # Get the student's age and store it in a variable
 def get_age(age):
@@ -33,3 +33,35 @@ def get_scores():
                 print("Invalid input. Please enter a number.")
     return scores
 
+# Get the average score for the student and store it in a variable
+def get_average(scores):
+    average = sum(scores) / len(scores)
+    return round(average, 2)
+
+# Determine the student's grade based on their average score and store it in a variable
+def get_grade(average):
+    if average >= 90:
+        return "A"
+    elif average >= 80:
+        return "B"
+    elif average >= 70:
+        return "C"
+    elif average >= 60:
+        return "D"
+    else:
+        return "F"
+
+# Display the student's report
+def display_report(name, age, scores, average, grade):
+    total = sum(scores)
+    status = "Pass" if average >= 60 else "Fail"
+
+    print("\n===== STUDENT GRADE REPORT =====")
+    print("--------------")
+    print(f"Name: {name}")
+    print(f"Age: {age}")
+    print(f"Scores: {scores}")
+    print(f"Total Score: {total}")
+    print(f"Average Score: {average}")
+    print(f"Grade: {grade}")
+    print(f"Status: {status}")
