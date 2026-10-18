@@ -65,3 +65,30 @@ def display_report(name, age, scores, average, grade):
     print(f"Average Score: {average}")
     print(f"Grade: {grade}")
     print(f"Status: {status}")
+
+def main():
+    students = []
+
+    while True:
+        name = get_name()
+        age = get_age()
+        scores = get_scores()
+        average = get_average(scores)
+        grade = get_grade(average)
+
+        student = {
+            "name": name,
+            "age": age,
+            "scores": scores,
+            "average": average,
+            "grade": grade
+        }
+        students.append(student)
+
+        display_report(name, age, scores, average, grade)
+
+        another_student = input("\nDo you want to enter another student's information? (yes/no): ").strip().lower()
+        if another_student != 'yes':
+            break
+if __name__ == "__main__":
+    main()
