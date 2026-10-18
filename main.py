@@ -1,12 +1,12 @@
 # Get the student's name and store it in a variable
-def get_name(name):
+def get_name():
     name = input("Enter your name: ")
     while name == "":
         name = input("Invalid input. Please enter your name: ")
     return(name)
 
 # Get the student's age and store it in a variable
-def get_age(age):
+def get_age():
     while True:
         try:
             age = int(input("Enter your age: "))
@@ -90,5 +90,24 @@ def main():
         another_student = input("\nDo you want to enter another student's information? (yes/no): ").strip().lower()
         if another_student != 'yes':
             break
+
+    display_all_registered_students(students)
+
+# Display all registered students and identify the student with the highest average
+def display_all_registered_students(students):
+    print("\n===== ALL REGISTERED STUDENTS =====")
+    for student in students:
+        print(f"{student['name']} | {student['average']} | {student['grade']}")
+
+        best_student = students[0]
+        for student in students:
+            if student['average'] > best_student['average']:
+                best_student = student
+
+        print("\n===== BEST STUDENT =====")
+        print(f"Name: {best_student['name']}")
+        print(f"Highest Average: {best_student['average']}")
+        print(f"Grade: {best_student['grade']}")
+
 if __name__ == "__main__":
     main()
